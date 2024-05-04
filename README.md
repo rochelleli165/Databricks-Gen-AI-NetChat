@@ -11,12 +11,12 @@ Runs the Flask backend. Make sure to pip install all required packages at the to
 
 
 ## Data
-netflix_titles.csv
-- contains all general netflix movie/show information
-imbd_titles-clean.csv
-- contains all netflix movie and show information given on imdb (ttconst important for web scraping data)
-tropes.csv
-- contains webscraped data from tvtropes.com, web scraping program shown in tropes.py
+netflix_titles.csv\
+- contains all general netflix movie/show information\
+imbd_titles-clean.csv\
+- contains all netflix movie and show information given on imdb (ttconst important for web scraping data)\
+tropes.csv\
+- contains webscraped data from tvtropes.com, web scraping program shown in tropes.py\
 
 
 
