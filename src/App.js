@@ -41,6 +41,7 @@ function App() {
   
   const [inputText, setInputText] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
+  const [history, setHistory] = useState('');
 
   const handleInputChange = (e) => {
     setInputText(e.target.value);
@@ -56,9 +57,10 @@ function App() {
     
     // Make request to your API to get ChatGPT response
     try {
-      const response = await axios.get(`http://127.0.0.1:5000/api/getData?question=${inputText}`);
+      const response = await axios.get(`http://127.0.0.1:5000/api/getData?question=${inputText}&history=${history}`);
       // Add ChatGPT response to chat history
-      setChatHistory([...chatHistory, { sender: 'chatbot', message: response.data }]);
+      setHistory(`{'role': 'user', content: ${inputText} }, {'role': 'asisstant', content: ${response.data}}`)
+      setChatHistory([...chatHistory, { sender: 'user', message: inputText }, { sender: 'chatbot', message: response.data }]);
     } catch (error) {
       console.error('Error fetching data:', error);
     }

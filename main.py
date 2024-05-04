@@ -9,7 +9,17 @@ CORS(app)
 
 @app.route("/api/getData", methods=['GET'])
 def getData():
+    historyList = ""
     question = request.args.get('question')
+    query = "Question: "
+    query+=(question)
+    history = request.args.get('history')
+    historyList+=history
+    h = "Use the history below to answer the question:\n"
+    h+=historyList
+    h+=(query)
+
+
     os.environ['DATABRICKS_TOKEN'] = 'dapi5f79cde79ef829ae84e3a0ce388cb40c'
 
     model_name = f"netflix.rag_chatbot.netflix_chatbot_model"
@@ -27,7 +37,7 @@ def getData():
 
     loaded_model = mlflow.pyfunc.load_model(model_version_details.source)
 
-    prediction = loaded_model.predict({"query": question})
+    prediction = loaded_model.predict({"query": h})
     print(prediction)
     return jsonify(prediction)
 
