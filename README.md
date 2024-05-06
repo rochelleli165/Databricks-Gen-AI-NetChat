@@ -6,6 +6,9 @@ To install all required npm packages / node modules
 ### `npm start`
 Runs the app in the development mode. You can find the general frontend code in src/App.js
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+If you get an access error with npm install or npm start, run:
+### `sudo npm install`
+### `sudo npm start`
 ### `python main.py`
 Runs the Flask backend. Make sure to pip install all required packages at the top of main.py
 
